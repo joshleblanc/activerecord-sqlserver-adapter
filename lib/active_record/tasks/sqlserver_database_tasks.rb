@@ -14,7 +14,7 @@ module ActiveRecord
                to: ActiveRecord::Base
 
       def initialize(configuration)
-        @configuration = configuration
+        @configuration = ActiveSupport::HashWithIndifferentAccess.new(configuration)
       end
 
       def create(master_established = false)
