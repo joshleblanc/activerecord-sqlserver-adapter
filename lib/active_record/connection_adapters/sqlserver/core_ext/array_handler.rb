@@ -5,6 +5,12 @@ module ActiveRecord
     module SQLServer
       module CoreExt
         module ArrayHandler
+          module NullPredicate # :nodoc:
+            def self.or(other)
+              other
+            end
+          end
+
           def call(attribute, value)
             return attribute.in([]) if value.empty?
 
